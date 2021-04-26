@@ -1,24 +1,27 @@
 package pl.orange.letsmeet.model;
 
-import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Objects;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-import pl.orange.letsmeet.util.StringToLocalTimeConverter;
 
 @Getter
 @Setter
-@ToString
+@NoArgsConstructor
 public class TimePeriod implements Comparable<TimePeriod> {
 
-    protected LocalTime start;
-    protected LocalTime end;
+    private LocalTime start;
+    private LocalTime end;
 
     public TimePeriod(LocalTime start, LocalTime end) {
         this.start = start;
         this.end = end;
+    }
+
+    public TimePeriod(TimePeriod timePeriod) {
+        this.start = timePeriod.getStart();
+        this.end = timePeriod.getEnd();
     }
 
     @Override
@@ -39,5 +42,6 @@ public class TimePeriod implements Comparable<TimePeriod> {
     @Override
     public int compareTo(TimePeriod o) {
         return this.start.compareTo(o.getStart());
+        
     }
 }
