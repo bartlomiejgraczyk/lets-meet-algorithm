@@ -24,10 +24,10 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
     
-    @GetMapping("hello")
-    public Schedule hello() {
-        return new Schedule(new TimePeriod("09:00", "16:00"), List.of(new TimePeriod("10:30", "11:00"), new TimePeriod("12:00", "14:00")));
-    }
+//    @GetMapping("hello")
+//    public Schedule hello() {
+//        return new Schedule(new TimePeriod("09:00", "16:00"), List.of(new TimePeriod("10:30", "11:00"), new TimePeriod("12:00", "14:00")));
+//    }
     
     @PostMapping("possible-meetings")
     public ResponseEntity<?> getPossibleMeetingHours(
