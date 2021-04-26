@@ -15,7 +15,7 @@ public final class ScheduleValidator {
         return TimePeriodValidator
                 .isValid(schedule.getWorkingHours())
                 && areAllMeetingsValid(schedule.getPlannedMeetings())
-                && areThereAnyCollisions(schedule);
+                && (!areThereAnyCollisions(schedule));
     }
 
     private static boolean areAllMeetingsValid(List<TimePeriod> meetings) {

@@ -13,10 +13,10 @@ public class GetMeetingHoursRequest {
 
     @NotNull
     @JsonProperty("first-calendar")
-    private ScheduleDTO firstCalendar;
+    private ScheduleDTO firstSchedule;
 
     @NotNull
     @JsonProperty("second-calendar")
-    private ScheduleDTO secondCalendar;
+    private ScheduleDTO secondSchedule;
 
 }

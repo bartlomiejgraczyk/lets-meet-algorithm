@@ -1,19 +1,19 @@
 package pl.orange.letsmeet.model;
 
-import java.io.Serializable;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class Schedule implements Serializable {
+public class Schedule {
     
     private TimePeriod workingHours;
-    private final List<TimePeriod> plannedMeetings;
+    private  List<TimePeriod> plannedMeetings;
 }
