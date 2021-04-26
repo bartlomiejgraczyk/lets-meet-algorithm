@@ -13,10 +13,18 @@ public final class DTOModelMapper {
     }
     
     public static DTOModelMapper getInstance() {
-        if (instance == null) {
-            instance = new DTOModelMapper();
+        DTOModelMapper result = instance;
+
+        if (result != null) {
+            return result;
         }
-        return instance;
+        
+        synchronized (DTOModelMapper.class) {
+            if (instance == null) {
+                instance = new DTOModelMapper();
+            }
+            return instance;
+        }
     }
     
     public TimePeriod toTimePeriod(TimePeriodDTO timePeriodDTO) {
