@@ -19,11 +19,6 @@ public class TimePeriod implements Comparable<TimePeriod> {
         this.end = end;
     }
 
-    public TimePeriod(TimePeriod timePeriod) {
-        this.start = timePeriod.getStart();
-        this.end = timePeriod.getEnd();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o)

@@ -2,7 +2,6 @@ package pl.orange.letsmeet.controller;
 
 import java.time.Duration;
 import java.time.LocalTime;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,12 +36,9 @@ public class ScheduleController {
         Duration minMeetingDuration = Duration.between(LocalTime.MIN, meetingDuration);
 
         try {
-            return ResponseEntity.ok().body(
-                    scheduleService
-                            .getPossibleMeetingHours(firstSchedule, secondSchedule, minMeetingDuration)
-                            .stream().map(timePeriod -> new String[]{
-                            timePeriod.getStart().toString(), timePeriod.getEnd().toString()
-                    }).collect(Collectors.toList())
+            return ResponseEntity.ok().body(dtoMapper.toMeetingsResponse(scheduleService
+                    .getPossibleMeetingHours(firstSchedule, secondSchedule, minMeetingDuration))
+
             );
         } catch (InvalidScheduleContentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
